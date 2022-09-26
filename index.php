@@ -3,6 +3,7 @@
     $szukane="a";
     function filtruj($tablica,$szukaj){
     $slowa=explode(" ",$tablica);
+    sort($slowa,SORT_NATURAL| SORT_FLAG_CASE);
     foreach($slowa as $slowo){
         if(strstr($slowo,$szukaj)==true){
             $filtr[]=$slowo;
