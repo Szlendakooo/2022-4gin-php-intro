@@ -12,4 +12,36 @@
         return $filtr;
     }
     var_dump(filtruj($ipsum,$szukane));
+    $table='<table>';
+    $slowa=explode(" ",$ipsum);
+    $liczba=0;
+    $kolumny=4;
+    foreach($slowa as $slowo){
+        if(
+            $liczba%$kolumny==0
+        ){
+            $table .='<tr>';
+        }
+        if(
+            $liczba<$kolumny
+        ){
+            $table .='<th>'.$slowo.'</th>';
+        } else{
+            $table .='<td>'.$slowo.'</td>';
+        }
+        if(
+            $liczba%$kolumny==$kolumny-1
+        ){
+            $table .='</tr>';
+        }
+        $liczba++;
+    }
+    if(
+        count(
+            $slowa
+        )%$kolumny!==0
+    ){
+        $table .='</tr>'; 
+    }
+    echo $table;
 ?>
